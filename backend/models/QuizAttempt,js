@@ -1,0 +1,16 @@
+const mongoose = require("mongoose");
+
+const quizAttemptSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  quiz: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Quiz"
+  },
+  answers: Array,
+  score: Number
+}, { timestamps: true });
+
+module.exports = mongoose.model("QuizAttempt", quizAttemptSchema);
